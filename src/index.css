@@ -1,0 +1,147 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 210 40% 2%;
+
+    --card: 210 40% 96%;
+    --card-foreground: 210 40% 2%;
+
+    --popover: 210 40% 96%;
+    --popover-foreground: 210 40% 2%;
+
+    --primary: 200 98% 35%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 90%;
+    --secondary-foreground: 210 40% 2%;
+
+    --muted: 210 40% 90%;
+    --muted-foreground: 210 40% 40%;
+
+    --accent: 194 83% 44%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 40% 85%;
+    --input: 210 40% 85%;
+    --ring: 200 98% 35%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 210 100% 10%;
+    --foreground: 210 10% 98%;
+
+    --card: 210 40% 14%;
+    --card-foreground: 210 10% 98%;
+
+    --popover: 210 40% 14%;
+    --popover-foreground: 210 10% 98%;
+
+    --primary: 200 98% 35%;
+    --primary-foreground: 210 10% 98%;
+
+    --secondary: 210 40% 20%;
+    --secondary-foreground: 210 10% 98%;
+
+    --muted: 210 40% 20%;
+    --muted-foreground: 210 20% 75%;
+
+    --accent: 194 83% 44%;
+    --accent-foreground: 210 10% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 10% 98%;
+
+    --border: 210 40% 20%;
+    --input: 210 40% 20%;
+    --ring: 200 98% 35%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .security-card {
+    @apply bg-card rounded-lg border border-border/50 shadow-md p-4 overflow-hidden transition-all duration-300 hover:shadow-lg;
+  }
+
+  .security-panel {
+    @apply bg-card/80 backdrop-blur-sm rounded-lg border border-border/30 shadow-md;
+  }
+  
+  .status-badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+  
+  .status-secure {
+    @apply bg-security-safe/20 text-security-safe status-badge;
+  }
+  
+  .status-warning {
+    @apply bg-security-alert/20 text-security-alert status-badge;
+  }
+  
+  .status-danger {
+    @apply bg-security-danger/20 text-security-danger status-badge;
+  }
+  
+  .status-neutral {
+    @apply bg-security-neutral/20 text-security-neutral status-badge;
+  }
+  
+  .radar-indicator {
+    @apply absolute top-1/2 left-1/2 w-full h-full -translate-x-1/2 -translate-y-1/2 rounded-full;
+    background: conic-gradient(from 0deg, rgba(14, 165, 233, 0) 0%, rgba(14, 165, 233, 0.5) 50%, rgba(14, 165, 233, 0) 100%);
+  }
+
+  /* New enhanced styles */
+  .glass-card {
+    @apply backdrop-blur-sm bg-white/10 border border-white/20 shadow-lg;
+  }
+
+  .animated-gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-primary to-blue-600 bg-size-200 animate-highlight;
+  }
+
+  .hero-pattern {
+    @apply bg-cyber-grid bg-fixed;
+  }
+
+  .feature-card {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
+  }
+
+  .blob {
+    @apply absolute bg-gradient-to-br from-primary/30 to-accent/30 rounded-full filter blur-xl opacity-70 animate-blob;
+  }
+}
+
+@layer utilities {
+  .bg-size-200 {
+    background-size: 200% 200%;
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+}
